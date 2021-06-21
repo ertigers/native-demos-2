@@ -1,3 +1,11 @@
+// 手写Promise
+// Promise是一个异步操作返回的对象，用来传递异步操作的消息
+// 1、解决回调地狱，代码易于维护
+// 2、合并多个异步请求
+// 尝试实现Promise
+// Promise有三种状态：Pending初始态，Fulfilled成功态，Rejected失败态
+
+
 const Promise1 = (executor) => {
   let self = this;
   self.status = "pending";
