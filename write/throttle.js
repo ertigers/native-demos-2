@@ -2,7 +2,7 @@ const throttle = (fn,delay)=>{
   let canUse = true
   return ()=>{
     if(canUse){
-      fn.apply(this,arguments)
+      fn.apply(this)
       canUse = false
       setTimeout(()=>{
         canUse = true
