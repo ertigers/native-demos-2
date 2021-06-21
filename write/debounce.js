@@ -1,10 +1,11 @@
 const debounce = (fn,delay)=>{
   let timerId = null
-  return ()=>{
+  return function(){
     const context = this
+    const args = arguments
     if(timerId){window.clearTimeout(timerId)}  
     timerId = setTimeout(()=>{
-      fn.apply(context)
+      fn.apply(context,args)
       timerId = null
     },delay)
   }
