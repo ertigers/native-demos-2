@@ -5,7 +5,6 @@
 // 尝试实现Promise
 // Promise有三种状态：Pending初始态，Fulfilled成功态，Rejected失败态
 
-
 const Promise1 = (executor) => {
   let self = this;
   self.status = "pending";
@@ -44,3 +43,5 @@ Promise1.prototype.then = (onFufiled, onRejected) => {
 };
 
 export { Promise1 }
+
+
