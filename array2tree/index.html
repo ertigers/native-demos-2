@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // 数组转化树形结构
+    function tranListToTreeData(list) {
+      const treeList = [];  // 最终要产出的树状数据的数组
+      const map = {};       // 存储映射关系
+      //  建立一个映射关系，并给每个元素补充children属性.
+      list.forEach(item => {
+        if (!item.children) {
+          item.children = [];
+        }
+        map[item.index] = item;
+      });
+
+      list.forEach(item => {
+        const parent = map[item.parent_index];
+        if (parent) {
+          parent.children.push(item);
+        } else {
+          treeList.push(item);
+        }
+      });
+      return treeList;
+    }
+
+    function start() {
+      const arr = [
+        { 'index': 1, 'parent_index': 0, 'name': '项目集' },
+        { 'index': 2, 'parent_index': 0, 'name': '项目集' },
+        { 'index': 3, 'parent_index': 1, 'name': '项目集' },
+        { 'index': 4, 'parent_index': 2, 'name': '项目' },
+        { 'index': 5, 'parent_index': 2, 'name': '项目' },
+        { 'index': 6, 'parent_index': 3, 'name': '项目' }
+      ];
+      const treeList = this.tranListToTreeData(arr);
+      console.log(treeList);
+    }
+  </script>
+</body>
+</html>
